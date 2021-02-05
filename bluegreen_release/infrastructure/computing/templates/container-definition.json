@@ -1,0 +1,28 @@
+[
+  {
+    "name": "${container_name}",
+    "image": "${image}:${version}",
+    "cpu": ${cpu},
+    "memory": ${memory},
+    "links": [],
+    "portMappings": [
+      {
+        "hostPort": 0,
+        "containerPort": 80,
+        "protocol": "tcp"
+      }
+    ],
+    "essential": true,
+    "entryPoint": [],
+    "command": [],
+    "environment": [],
+    "mountPoints": [],
+    "volumesFrom": [],
+    "logConfiguration": {
+      "logDriver": "syslog",
+      "options": {
+        "tag": "${container_name}"
+      }
+    }
+  }
+]
