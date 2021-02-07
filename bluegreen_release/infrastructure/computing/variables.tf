@@ -12,7 +12,7 @@ variable "container_memory" {}
 variable "subnets" {
   type = list
 }
-variable "global_endpoint_listener_arn" {}
+variable "global_accelerator_endpoint_arn" {}
 variable "ecs_service_desired_capacity" {}
 variable "ecs_autoscaling_max_instance_size" {}
 variable "ecs_autoscaling_min_instance_size" {}

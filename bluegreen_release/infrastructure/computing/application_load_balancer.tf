@@ -60,10 +60,22 @@ resource "aws_alb_listener" "alb-release-listener" {
 
 }
 
+resource "aws_globalaccelerator_listener" "endpoint_listener" {
+
+  accelerator_arn = var.global_accelerator_endpoint_arn
+  protocol        = "TCP"
+
+  port_range {
+    from_port = 80
+    to_port   = 80
+  }
+
+}
+
 resource "aws_globalaccelerator_endpoint_group" "endpoint_attachment" {
 
   count = var.release_environment ? 1 : 0
-  listener_arn = var.global_endpoint_listener_arn
+  listener_arn = aws_globalaccelerator_listener.endpoint_listener.id
 
   endpoint_configuration {
     endpoint_id = aws_lb.alb-ecs-cluster.arn

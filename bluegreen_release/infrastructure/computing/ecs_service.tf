@@ -1,7 +1,7 @@
 resource "aws_ecs_service" "ecs_service" {
 
   desired_count                     = var.ecs_service_desired_capacity
-  iam_role                          = aws_iam_role.ecsServiceRole.name
+  iam_role                          = data.aws_iam_role.ecsServiceRole.name
   cluster                           = aws_ecs_cluster.ecs_cluster.id
   health_check_grace_period_seconds = var.ecs_service_health_check_grace_period
   task_definition                   = aws_ecs_task_definition.cluster_task_definition.arn

@@ -46,5 +46,6 @@ module "computing" {
   # Autoscaling
   #--------------------------------------------------------------
   global_endpoint_weight                  = var.endpoint_weight
-  global_endpoint_listener_arn            = "arn:aws:globalaccelerator::155490492186:accelerator/05f61aae-e424-4380-af7c-7fabd52e6c24/listener/5f72be81"
+  global_accelerator_endpoint_arn         = "arn:aws:globalaccelerator::155490492186:accelerator/05f61aae-e424-4380-af7c-7fabd52e6c24"
+
 }
