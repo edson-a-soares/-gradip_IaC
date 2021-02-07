@@ -4,7 +4,7 @@ terraform {
     region  = "us-east-1"
     profile = "secondary"
     bucket  = "bluegreen.terraform"
-    key     = "releases/terraform.tfstate"
+    key     = "terraform.tfstate"
     shared_credentials_file = "~/.aws/credentials"
   }
 }
