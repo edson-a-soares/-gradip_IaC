@@ -4,7 +4,7 @@ variable "project_name" {
 
 variable "environment_name" {
   description = "The environment infrastructure for the operation."
-  default = "prod"
+  default = "inception"
 }
 
 variable "region" {
@@ -14,14 +14,5 @@ variable "region" {
 
 variable "build_number" {
   description = "Current build number."
-}
-
-variable "release_new_environment" {
-  description = "If set to 1, it releases the last version of the application in production."
-  type        = bool
-  default     = false
-}
-
-variable "endpoint_weight" {
-  default = 255
+  default = 0
 }

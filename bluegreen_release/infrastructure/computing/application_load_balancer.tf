@@ -14,7 +14,7 @@ resource "aws_alb_target_group" "alb" {
     healthy_threshold   = "2"
     unhealthy_threshold = "4"
     interval            = "30"
-    matcher             = "304"
+    matcher             = "200-499"
     path                = "/"
     protocol            = "HTTP"
     timeout             = "5"
@@ -57,5 +57,17 @@ resource "aws_alb_listener" "alb-release-listener" {
     aws_lb.alb-ecs-cluster,
     aws_alb_target_group.alb
   ]
+
+}
+
+resource "aws_globalaccelerator_endpoint_group" "endpoint_attachment" {
+
+  count = var.release_environment ? 1 : 0
+  listener_arn = var.global_endpoint_listener_arn
+
+  endpoint_configuration {
+    endpoint_id = aws_lb.alb-ecs-cluster.arn
+    weight      = var.global_endpoint_weight
+  }
 
 }

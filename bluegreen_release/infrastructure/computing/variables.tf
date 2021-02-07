@@ -1,3 +1,4 @@
+variable "region" {}
 variable "project_name" {}
 variable "build_number" {}
 variable "environment_name" {}
@@ -11,6 +12,7 @@ variable "container_memory" {}
 variable "subnets" {
   type = list
 }
+variable "global_endpoint_listener_arn" {}
 variable "ecs_service_desired_capacity" {}
 variable "ecs_autoscaling_max_instance_size" {}
 variable "ecs_autoscaling_min_instance_size" {}
@@ -19,3 +21,12 @@ variable "ecs_service_health_check_grace_period" {}
 variable "ec2_autoscaling_desired_capacity" {}
 variable "ec2_autoscaling_max_instance_size" {}
 variable "ec2_autoscaling_min_instance_size" {}
+
+variable "global_endpoint_weight" {
+  default = 255
+}
+
+variable "release_environment" {
+  description = "If set to true, it releases the last version of the application."
+  type        = bool
+}
