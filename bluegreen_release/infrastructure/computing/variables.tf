@@ -12,7 +12,6 @@ variable "container_memory" {}
 variable "subnets" {
   type = list
 }
-variable "global_accelerator_endpoint_arn" {}
 variable "ecs_service_desired_capacity" {}
 variable "ecs_autoscaling_max_instance_size" {}
 variable "ecs_autoscaling_min_instance_size" {}
@@ -22,6 +21,7 @@ variable "ec2_autoscaling_desired_capacity" {}
 variable "ec2_autoscaling_max_instance_size" {}
 variable "ec2_autoscaling_min_instance_size" {}
 
+variable "global_accelerator_endpoint_listener_arn" {}
 variable "global_endpoint_weight" {
   default = 255
 }
