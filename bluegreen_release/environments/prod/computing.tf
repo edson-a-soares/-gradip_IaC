@@ -43,9 +43,8 @@ module "computing" {
   ec2_autoscaling_min_instance_size       = 1
 
   #--------------------------------------------------------------
-  # Autoscaling
+  # Global endpoint
   #--------------------------------------------------------------
-  global_endpoint_weight                  = var.endpoint_weight
-  global_accelerator_endpoint_arn         = "arn:aws:globalaccelerator::155490492186:accelerator/05f61aae-e424-4380-af7c-7fabd52e6c24"
+  global_accelerator_endpoint_listener_arn  = "arn:aws:globalaccelerator::155490492186:accelerator/74b9be0b-0acb-4b3c-bdc1-100fee3765dd/listener/113bbc44"
 
 }

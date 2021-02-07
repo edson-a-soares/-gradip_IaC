@@ -67,7 +67,7 @@ resource "aws_globalaccelerator_endpoint_group" "green_environment_attachment" {
 
   endpoint_configuration {
     endpoint_id = aws_lb.alb-ecs-cluster.arn
-    weight      = 255
+    weight      = var.global_endpoint_weight
   }
 
 }
