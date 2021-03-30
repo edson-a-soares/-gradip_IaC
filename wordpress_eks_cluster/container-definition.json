@@ -1,0 +1,39 @@
+[
+  {
+    "name": "${container_name}",
+    "image": "${image}:${version}",
+    "cpu": ${cpu},
+    "memory": ${memory},
+    "links": [],
+    "portMappings": [
+      {
+        "hostPort": 0,
+        "containerPort": 80,
+        "protocol": "tcp"
+      }
+    ],
+    "essential": true,
+    "entryPoint": [],
+    "command": [],
+    "environment": [
+      { "name": "WORDPRESS_DB_NAME", "value": "${wp_database_name}" },
+      { "name": "WORDPRESS_DB_USER", "value": "${wp_database_user}" },
+      { "name": "WORDPRESS_DB_HOST", "value": "${wp_database_host}" },
+      { "name": "WORDPRESS_TABLE_PREFIX", "value": "${wp_table_prefix}" },
+      { "name": "WORDPRESS_DB_PASSWORD", "value": "${wp_database_password}" }
+    ],
+    "mountPoints": [
+      {
+        "sourceVolume": "www-data",
+        "containerPath": "/www"
+      }
+    ],
+    "volumesFrom": [],
+    "logConfiguration": {
+      "logDriver": "syslog",
+      "options": {
+        "tag": "${container_name}"
+      }
+    }
+  }
+]
