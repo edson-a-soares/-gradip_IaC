@@ -1,4 +1,4 @@
-resource "aws_db_instance" "wordpress" {
+resource "aws_db_instance" "wordpress_database" {
 
   allocated_storage = 5
   storage_type      = "gp2"
@@ -15,5 +15,5 @@ resource "aws_db_instance" "wordpress" {
 }
 
 output "wordpress_database_endpoint" {
-  value = aws_db_instance.wordpress.endpoint
+  value = aws_db_instance.wordpress_database.endpoint
 }

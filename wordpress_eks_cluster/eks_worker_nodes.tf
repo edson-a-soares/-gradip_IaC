@@ -6,15 +6,15 @@ resource "aws_eks_node_group" "wordpress_eks_cluster_worker_nodes" {
   cluster_name    = aws_eks_cluster.wordpress_eks_cluster.name
 
   scaling_config {
-    desired_size = 1
-    max_size     = 1
-    min_size     = 1
+    desired_size = var.ec2_autoscaling_desired_capacity
+    max_size     = var.ec2_autoscaling_max_instance_size
+    min_size     = var.ec2_autoscaling_min_instance_size
   }
 
-  instance_types = ["t2.micro"]
+  instance_types = [var.ec2_instance_type]
 
   tags = {
-    Version = var.build_number
+    Version     = var.build_number
     Environment = var.environment_name
   }
 
